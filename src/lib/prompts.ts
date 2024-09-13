@@ -263,6 +263,16 @@ export default async function prompts({
       },
       format: lineBreakFormatter,
     },
+    // Add the optional issueKey question if required
+    {
+      type: PROMPT_TYPES.INPUT_BOX,
+      name: 'issueKey',
+      placeholder: getPromptLocalize('issueKey.placeholder'),
+      validate(input: string) {
+        return ''; // Add validation logic if needed
+      },
+      format: lineBreakFormatter,
+    }
   ]
     .filter(function (question) {
       if (question.name === 'scope' && !promptScopes) return false;

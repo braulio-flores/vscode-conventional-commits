@@ -10,6 +10,7 @@ export class CommitMessage {
   private _body: string = '';
   private _footer: string = '';
   private _ci: string = '';
+  private _issueKey: string = ''; // Nuevo campo
 
   get type() {
     return this._type;
@@ -66,6 +67,14 @@ export class CommitMessage {
   set ci(input: string) {
     this._ci = input.trim();
   }
+
+  get issueKey() {
+    return this._issueKey;
+  }
+
+  set issueKey(input: string) {
+    this._issueKey = input.trim();
+  }
 }
 
 export function serializeSubject(partialCommitMessage: {
@@ -112,12 +121,15 @@ export function serializeHeader(partialCommitMessage: {
 
 export function serialize(commitMessage: CommitMessage) {
   let message = serializeHeader(commitMessage);
-  const { body, footer } = commitMessage;
+  const { body, footer, issueKey } = commitMessage;
   if (body) {
     message += `\n\n${body}`;
   }
   if (footer) {
     message += `\n\n${footer}`;
+  }
+  if (issueKey) {
+    message += ` [${issueKey}]`; // Añadir el issueKey al final, envuelto en corchetes
   }
   return message;
 }

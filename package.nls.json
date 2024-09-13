@@ -24,6 +24,7 @@
   "extension.sources.vscodeGitNotFound": "vscode.git is not enabled.",
   "extension.sources.prompt.fromWorkspaceConfiguration": "From workspace configuration or your personal settings.json.",
   "extension.sources.prompt.type.placeholder": "Select the type of change that you're committing.",
+  "extension.sources.prompt.issueKey.placeholder": "Type the issueKey related to Jira",
   "extension.sources.prompt.type.fromCommitlintConfig": "From commitlint config.",
   "extension.sources.prompt.scope.placeholder": "Select the scope of this change.",
   "extension.sources.prompt.scope.noneItem.label": "None",
